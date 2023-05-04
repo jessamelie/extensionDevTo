@@ -1,0 +1,24 @@
+{
+  "name": "extensiondevto",
+  "version": "1.0.0",
+  "description": "",
+  "main": "extensionDevTo.js",
+  "scripts": {
+    "dev": "node extensionDevTo.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jessamelie/extensionDevTo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jessamelie/extensionDevTo/issues"
+  },
+  "homepage": "https://github.com/jessamelie/extensionDevTo#readme",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "cheerio": "^1.0.0-rc.12"
+  }
+}

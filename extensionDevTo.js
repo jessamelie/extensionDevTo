@@ -1,4 +1,4 @@
-const axios = require('axios'); 
+/*const axios = require('axios'); 
 const cheerio = require('cheerio'); 
 const fs = require('fs'); 
  
@@ -48,5 +48,54 @@ axios.get(targetURL).then((response) => {
 	const body = response.data; 
 	const $ = cheerio.load(body); // Load HTML data and initialize cheerio 
 	getArticles($) 
-});
+});*/
 
+async function getArticle() {
+    const requestString = 'https://dev.to/api/articles/latest';
+    const dataArticles = await fetch(requestString);
+    let responseArticles = await dataArticles.json();
+	console.log(responseArticles);
+
+	const cardContainer = document.getElementById('cards-container')
+
+	for (let i = 0; i < 5; i++) {
+
+		const card = document.createElement('div')
+		card.className = "cards"
+		cardContainer.appendChild(card)
+
+
+		const picture = document.createElement('img')
+		picture.className = "cover"
+		picture.src = responseArticles[i].cover_image;
+		if (picture.src == "http://127.0.0.1:5500/null" ) {
+			picture.src = "./images/techimg.jpg"
+		}
+		card.appendChild(picture)
+
+
+		const cardbody = document.createElement('div')
+		cardbody.className = "card-body"
+		card.appendChild(cardbody)
+		
+		const title = document.createElement('h2')
+		title.innerText = responseArticles[i].title
+		cardbody.appendChild(title)
+
+		const link = document.createElement('a')
+		link.href = responseArticles[i].url;
+		link.target = "_blank"
+		link.innerText = "Lien"
+		cardbody.appendChild(link)
+
+		const date = document.createElement('p')
+		date.innerText = responseArticles[i].readable_publish_date
+		cardbody.appendChild(date)
+
+		const readTime = document.createElement('p')
+		readTime.innerText = `Temps de lecture : ${responseArticles[i].reading_time_minutes} min `
+		cardbody.appendChild(readTime)
+
+ }
+}
+  getArticle()

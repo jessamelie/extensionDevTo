@@ -1,0 +1,11 @@
+{
+    "name": "Dev Flux RSS",
+    "version": "1.0",
+    "description": "The latest news of Dev Community",
+    "manifest_version": 3,
+    "author": "JJLJ",
+    "action":{
+        "default_popup": "extensionDevTo.html",
+        "default_title": "Extension Web | RSS"
+    }
+}
