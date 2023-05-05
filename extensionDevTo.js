@@ -68,7 +68,7 @@ async function getArticle() {
 		const picture = document.createElement('img')
 		picture.className = "cover"
 		picture.src = responseArticles[i].cover_image;
-		if (picture.src == "http://127.0.0.1:5500/null" ) {
+		if (picture.src == "http://127.0.0.1:5500/null" || picture.src == "chrome-extension://hocnkfcjihdnngadpjodnlfppgcjkfmf/null" ) {
 			picture.src = "./images/techimg.jpg"
 		}
 		card.appendChild(picture)
