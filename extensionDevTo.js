@@ -50,6 +50,7 @@ axios.get(targetURL).then((response) => {
 	getArticles($) 
 });*/
 
+
 async function getArticle() {
     const requestString = 'https://dev.to/api/articles/latest';
     const dataArticles = await fetch(requestString);
@@ -58,7 +59,7 @@ async function getArticle() {
 
 	const cardContainer = document.getElementById('cards-container')
 
-	for (let i = 0; i < 5; i++) {
+	for (let i = 0; i < 8; i++) {
 
 		const card = document.createElement('div')
 		card.className = "cards"
@@ -78,14 +79,14 @@ async function getArticle() {
 		cardbody.className = "card-body"
 		card.appendChild(cardbody)
 		
-		const title = document.createElement('h2')
-		title.innerText = responseArticles[i].title
+		const title = document.createElement('h3')
+		title.innerText = `📝${responseArticles[i].title}`
 		cardbody.appendChild(title)
 
 		const link = document.createElement('a')
 		link.href = responseArticles[i].url;
 		link.target = "_blank"
-		link.innerText = "Lien"
+		link.innerText = "Lire l'article 🖱️"
 		cardbody.appendChild(link)
 
 		const date = document.createElement('p')
